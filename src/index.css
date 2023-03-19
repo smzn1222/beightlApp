@@ -1,0 +1,47 @@
+html,
+body,
+.root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font: 15px;
+  margin: 0px;
+}
+
+/* 日本語用フォント */
+body {
+  font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+/* 英数字用フォント */
+body {
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 色設定と長いURLが画面からはみ出さないようにする設定 */
+a {
+  color: #2c9ddb;
+  display: inline-block;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* 未訪問リンク */
+/* a:link {
+} */
+
+/* 訪問済みリンク */
+/* a:visited {
+} */
+
+/* マウスカーソルを乗せたリンク */
+a:hover {
+  color: #1caa9c;
+}
+/* 選択したリンク */
+a:active {
+  color: gray;
+}

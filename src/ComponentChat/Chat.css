@@ -1,0 +1,51 @@
+.chat {
+  height: 100%;
+  width: 100%;
+}
+
+/* 改行用 */
+.line-break {
+  white-space: pre-wrap;
+}
+
+.Message {
+  margin: 0px 40px 0px 20px;
+}
+
+.SendText {
+  margin: 30px 40px 0px 40px;
+}
+
+.send-btn,
+.clr-btn,
+.reset-btn {
+  margin: 5px 0px 5px 10px;
+}
+
+.txtarea-send {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.msgText {
+  font-weight: bold;
+  margin: 5px;
+}
+
+.isdark-checkbox {
+  margin-left: 20px;
+}
+
+.chat-header {
+  display: flex;
+  text-align: right;
+}
+
+.chat-title {
+  margin: 25px auto 20px 20px;
+}
+
+.myLink {
+  margin: 35px 40px 0px 0px;
+}
