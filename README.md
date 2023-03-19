@@ -1,4 +1,5 @@
-# react-gpt-sample
+# beightlApp
+
 ## Set API Key
 
 You must make a file named `.env` and write in `.env`:
