@@ -10,7 +10,7 @@ You must make a file named `.env` and write in `.env`:
 
 First, you must run:
 
-### `npm install`
+### `npm install` or `npm ci`
 
 In the project directory, you can run:
 
