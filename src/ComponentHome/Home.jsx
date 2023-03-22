@@ -6,7 +6,7 @@ const Home = () => {
       <h1>Beightlyouch</h1>
       <ul>
         <li>
-          <Link to="/Chat">BeightlGPT</Link>
+          <Link to="/chat">BeightlGPT</Link>
         </li>
         <li>
           <Link target="_blank" to="https://beightlyouch.com/">

@@ -10,8 +10,16 @@ You must make a file named `.env` and write in `.env`:
 
 First, you must run:
 
-### `npm install`
+### `npm install` or `npm ci`
 
-In the project directory, you can run:
+In the project directory, you can run (dev mode):
 
 ### `npm start`
+
+In the project directory, you can build:
+
+### `npm run build`
+
+In the project directory, you can build this project in container:
+
+### `docker-compose up --build -d`

@@ -12,10 +12,10 @@ const App = () => {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Chat" element={<Chat />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/chat" element={<Chat />} />
           {/*not foundの時Homeへリダイレクト*/}
-          <Route path="/*" element={<Navigate to="/Home" />} />
+          <Route path="/*" element={<Navigate to="/home" />} />
         </Routes>
       </div>
     </Router>
