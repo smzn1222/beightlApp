@@ -1,3 +1,0 @@
-docker build -t react-app .
-docker run --rm -d -p 8080:3000 react-app
-docker rmi react-app
