@@ -19,6 +19,5 @@ FROM nginx:1.23-alpine-slim
 # ビルド用のNode.jsコンテナ(=builder)からビルドファイルをコピーする
 COPY --from=builder --chown=nonroot:nonroot /app/build/ /usr/share/nginx/html/
 
-# nginx設定ファイルの配置 (コンテナイメージ内の/etc/nginx/templates/*.templateは起動時、envsubst実行後に /etc/nginx/conf.dに展開される)
-# TODO: nginxの設定ファイルを学習して設定する
-# COPY ./default.conf.template /etc/nginx/templates/default.conf.template
+# nginx設定ファイルの配置
+COPY --chown=nonroot:nonroot ./default.conf /etc/nginx/conf.d/
