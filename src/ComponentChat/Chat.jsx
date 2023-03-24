@@ -28,7 +28,7 @@ const Chat = () => {
       <div className="chat-header">
         <h2 className="chat-title">BeightlGPT</h2>
         <div className="myLink">
-          <Link to="/home">Homeへ戻る</Link>
+          <Link to="/home">HOME</Link>
         </div>
       </div>
 
