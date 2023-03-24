@@ -22,4 +22,4 @@ In the project directory, you can build:
 
 In the project directory, you can build this project in container:
 
-### `docker-compose up --build -d`
+### `docker compose up --build -d`
