@@ -12,14 +12,21 @@
   margin: 0px 40px 0px 20px;
 }
 
-.SendText {
+.SendText,
+.SystemValue {
   margin: 30px 40px 0px 40px;
 }
 
 .send-btn,
 .clr-btn,
-.reset-btn {
+.reset-btn,
+.start-btn,
+.edit-btn {
   margin: 5px 0px 5px 10px;
+}
+
+.select-system-value {
+  margin: 5px 0px 10px 0px;
 }
 
 .txtarea-send {

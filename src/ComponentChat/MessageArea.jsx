@@ -24,7 +24,7 @@ const MessageArea = (props) => {
   const comToGPT = async (messages) => {
     try {
       const completion = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
+        model: props.openaiModel,
         messages: messages,
       });
       setMessages([...messages, completion.data.choices[0].message]);
@@ -32,10 +32,11 @@ const MessageArea = (props) => {
       setMsgValue("");
       setIsCommunicating(false);
     } catch (error) {
-      setMsgValue("データの取得に失敗しました。");
+      setMsgValue("サーバとの接続に失敗しました。");
       setIsCommunicating(false);
       // 取得に失敗した際の最終送信を削除
       messages.splice(messages.length - 1, 1);
+      console.error(error.Message);
     }
   };
 
@@ -106,22 +107,8 @@ const MessageArea = (props) => {
     setMsgValue("");
   };
 
-  // ダークモード切替
-  const switchMode = () => {
-    const isDark = props.isDarkMode;
-    props.setIsDarkMode(!isDark);
-  };
-
   return (
     <div className="MessageArea">
-      <label className="isdark-checkbox">
-        <input
-          type="checkbox"
-          checked={props.isDarkMode}
-          onChange={switchMode}
-        />
-        {"ダークモードON"}
-      </label>
       <SendText
         messages={messages}
         setInputValue={setInputValue}
@@ -133,6 +120,7 @@ const MessageArea = (props) => {
         onClickClear={() => clearMessages()}
         onClickReset={() => resetHistory()}
         isCommunicating={isCommunicating}
+        setIsEditingSystemValue={props.setIsEditingSystemValue}
       />
       <Message messages={messages} isDarkMode={props.isDarkMode} />
     </div>

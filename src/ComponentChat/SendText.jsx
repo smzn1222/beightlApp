@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 const SendText = (props) => {
   // textareaの高さの初期値
@@ -29,6 +29,16 @@ const SendText = (props) => {
       handleButtonClick();
     }
   };
+
+  const onClickChangeSystemValue = () => {
+    props.setIsEditingSystemValue(true);
+    props.onClickReset();
+  };
+
+  // 初期描画時にテキストエリアにフォーカスを当てる
+  useEffect(() => {
+    textAreaRef.current.focus();
+  }, []);
 
   return (
     <div className="SendText">
@@ -79,6 +89,15 @@ const SendText = (props) => {
           disabled={props.isCommunicating}
         >
           会話リセット
+        </button>
+        <button
+          className="edit-btn"
+          onClick={() => {
+            onClickChangeSystemValue();
+          }}
+          disabled={props.isCommunicating}
+        >
+          システム値変更
         </button>
       </div>
       <div

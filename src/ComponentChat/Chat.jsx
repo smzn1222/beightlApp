@@ -1,12 +1,26 @@
 import MessageArea from "./MessageArea";
+import SystemValueArea from "./SystemValueArea";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Chat = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [systemValue, setSystemValue] = useState(
-    "サポートアシスタントのように振る舞ってください。基本的に日本語で返答してください。"
-  );
+  const [systemValue, setSystemValue] =
+    useState(`あなたは訓練された大規模言語モデルです。
+以下の指示に従って回答をしてください。
+- サポートアシスタントのようにふるまってください。
+- 指示には注意深く従ってください。
+- 特に指示がない場合は日本語で回答してください。
+- 回答にはマークダウンを用いてください。
+`);
+  const [openaiModel, setOpenaiModel] = useState("gpt-4o-mini");
+  const [isEditingSystemValue, setIsEditingSystemValue] = useState(true);
+
+  // ダークモード切替
+  const switchMode = () => {
+    const isDark = isDarkMode;
+    setIsDarkMode(!isDark);
+  };
 
   const darkModeStyle = {
     backgroundColor: "#1E2022",
@@ -17,6 +31,22 @@ const Chat = () => {
     backgroundColor: "#FFF9EE",
     color: "black",
   };
+
+  const mainContent = isEditingSystemValue ? (
+    <SystemValueArea
+      setIsEditingSystemValue={setIsEditingSystemValue}
+      systemValue={systemValue}
+      setSystemValue={setSystemValue}
+      openaiModel={openaiModel}
+      setOpenaiModel={setOpenaiModel}
+    />
+  ) : (
+    <MessageArea
+      setIsEditingSystemValue={setIsEditingSystemValue}
+      systemValue={systemValue}
+      openaiModel={openaiModel}
+    />
+  );
 
   return (
     <div
@@ -31,12 +61,11 @@ const Chat = () => {
           <Link to="/home">HOME</Link>
         </div>
       </div>
-
-      <MessageArea
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
-        systemValue={systemValue}
-      />
+      <label className="isdark-checkbox">
+        <input type="checkbox" checked={isDarkMode} onChange={switchMode} />
+        {"ダークモードON"}
+      </label>
+      {mainContent}
     </div>
   );
 };
