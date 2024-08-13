@@ -42,6 +42,18 @@ const SendText = (props) => {
 
   return (
     <div className="SendText">
+      <div className="msgText">
+        使用中のモデル：{props.openaiModel}
+        <button
+          className="edit-btn"
+          onClick={() => {
+            onClickChangeSystemValue();
+          }}
+          disabled={props.isCommunicating}
+        >
+          システム値変更
+        </button>
+      </div>
       <div className="msgText">※会話の履歴は10往復まで保存</div>
       <textarea
         id="send-textarea"
@@ -89,15 +101,6 @@ const SendText = (props) => {
           disabled={props.isCommunicating}
         >
           会話リセット
-        </button>
-        <button
-          className="edit-btn"
-          onClick={() => {
-            onClickChangeSystemValue();
-          }}
-          disabled={props.isCommunicating}
-        >
-          システム値変更
         </button>
       </div>
       <div

@@ -121,6 +121,7 @@ const MessageArea = (props) => {
         onClickReset={() => resetHistory()}
         isCommunicating={isCommunicating}
         setIsEditingSystemValue={props.setIsEditingSystemValue}
+        openaiModel={props.openaiModel}
       />
       <Message messages={messages} isDarkMode={props.isDarkMode} />
     </div>
